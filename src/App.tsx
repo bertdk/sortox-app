@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
+import { List } from "./Components/List/List.component";
 
 function App() {
-  return <div className="App">foo</div>;
+  return (
+    <div>
+      <List />
+    </div>
+  );
 }
 
 export default App;
