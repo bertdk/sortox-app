@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { selectionSort } from './algorithms/sort/selection'
 import './App.css'
+import { BarState } from './Components/Bar/Bar.component'
 import { Controls } from './Components/List/Controls.component'
-import { List } from './Components/List/List.component'
+import { Item, List } from './Components/List/List.component'
 import { randomNumber } from './utils/randomNumber'
 
 export const App = () => {
-  const [list, setList] = useState([] as number[])
+  const [list, setList] = useState([] as Item[])
   const [length, setLength] = useState(10)
 
   useEffect(() => {
     setList(createRandomList(length))
   }, [length])
 
-  const onSort = () => {
-    selectionSort(list, setList)
+  const onSort = async () => {
+    await selectionSort(list, setList)
   }
 
   const onRandomize = () => {
@@ -22,14 +23,14 @@ export const App = () => {
   }
 
   const createRandomList = (length: number) => {
-    const list: number[] = []
+    const list: Item[] = []
     for (let i = 1; i <= length; i++) {
       let newNumber = randomNumber(length)
       // eslint-disable-next-line no-loop-func
-      while (list.some((n) => n === newNumber)) {
+      while (list.some(({ number }) => number === newNumber)) {
         newNumber = randomNumber(length)
       }
-      list.push(newNumber)
+      list.push({ number: newNumber, state: BarState.ToDo })
     }
     return list
   }
