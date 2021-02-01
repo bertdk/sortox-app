@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { selectionSort } from './algorithms/sort/selection'
-import './App.css'
 import { BarState } from './Components/Bar/Bar.component'
 import { Controls } from './Components/List/Controls.component'
 import { Item, List } from './Components/List/List.component'
