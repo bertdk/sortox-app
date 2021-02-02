@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { insertionSort } from './algorithms/sort/insertion'
-import { selectionSort } from './algorithms/sort/selection'
+import { bubbleSort } from './algorithms/sort/bubble.sort.algo'
+import { insertionSort } from './algorithms/sort/insertion.sort.algo'
+import { selectionSort } from './algorithms/sort/selection.sort.algo'
 import { BarState } from './Components/Bar/Bar.component'
 import { AlgorithmsEnum, Controls } from './Components/List/Controls.component'
 import { Item, List } from './Components/List/List.component'
@@ -25,6 +26,9 @@ export const App = () => {
         break
       case AlgorithmsEnum.insertion:
         await insertionSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.bubble:
+        await bubbleSort(list, setList, speed)
         break
 
       default:
