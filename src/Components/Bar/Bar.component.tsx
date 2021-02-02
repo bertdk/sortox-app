@@ -1,20 +1,10 @@
 import React from 'react'
-import { Tile } from './Tile.component'
 import cx from 'classnames'
 import s from './bar.module.scss'
+import { Tile } from './Tile.component'
+import { Item } from 'contracts/representations/item.representation'
 
-export enum BarState {
-  Done = 'done',
-  Current = 'current',
-  ToDo = 'todo',
-  Pivot = 'pivot',
-}
-export interface Props {
-  number: number
-  state: BarState
-}
-
-export const Bar = ({ number, state }: Props) => {
+export const Bar = ({ number, state }: Item) => {
   return (
     <div className={cx(s.bar)}>
       {[...Array(number)].map((n, i) => (

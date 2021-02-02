@@ -1,14 +1,9 @@
 import { Button, MenuItem, Select, Slider } from '@material-ui/core'
+import { AlgorithmsEnum } from 'contracts/enums/Algorithms.enum'
 import React from 'react'
 import s from './controls.module.scss'
 
-export enum AlgorithmsEnum {
-  selection = 'Selection',
-  insertion = 'Insertion',
-  bubble = 'Bubble',
-}
-
-export interface Props {
+interface Props {
   onSort: any
   onRandomize: any
   onSlideLength: any
@@ -34,15 +29,11 @@ export const Controls = ({
         onChange={onAlgorithmChange}
         disabled={!enableControls}
       >
-        <MenuItem value={AlgorithmsEnum.selection}>
-          {AlgorithmsEnum.selection}
-        </MenuItem>
-        <MenuItem value={AlgorithmsEnum.insertion}>
-          {AlgorithmsEnum.insertion}
-        </MenuItem>
-        <MenuItem value={AlgorithmsEnum.bubble}>
-          {AlgorithmsEnum.bubble}
-        </MenuItem>
+        {Object.values(AlgorithmsEnum)
+          .sort()
+          .map((a) => (
+            <MenuItem value={a}>{a}</MenuItem>
+          ))}
       </Select>
     </div>
     <div className={s.control}>

@@ -1,6 +1,6 @@
-import { BarState } from '../../Components/Bar/Bar.component'
-import { Item } from '../../Components/List/List.component'
-import { sleep } from '../../utils/sleep'
+import { BarState } from 'contracts/enums/BarStatus.enum'
+import { Item } from 'contracts/representations/item.representation'
+import { sleep } from 'utils/sleep'
 
 export const selectionSort = async (
   list: Item[],

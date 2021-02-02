@@ -1,15 +1,18 @@
-@import '../../styles/style.module.scss';
+@import 'styles/style.module.scss';
 
 .tile {
   background-color: $primary;
-  width: 100%;
   height: 10px;
+  width: 100%;
+
   &.done {
     background-color: $done;
   }
+
   &.current {
     background-color: $current;
   }
+
   &.pivot {
     background-color: $pivot;
   }
