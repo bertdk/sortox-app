@@ -9,13 +9,17 @@ export const App = () => {
   const [list, setList] = useState([] as Item[])
   const [algorithm, setAlgorithm] = useState(AlgorithmsEnum.selection)
   const [length, setLength] = useState(10)
+  const [speed, setSpeed] = useState(15)
+  const [isSorting, setIsSorting] = useState(false)
 
   useEffect(() => {
     setList(createRandomList(length))
   }, [length])
 
   const onSort = async () => {
-    await selectionSort(list, setList)
+    setIsSorting(true)
+    await selectionSort(list, setList, speed)
+    setIsSorting(false)
   }
 
   const onRandomize = () => {
@@ -35,8 +39,12 @@ export const App = () => {
     return list
   }
 
-  const onSlide = (e: any, value: number | number[]) => {
+  const onSlideLength = (e: any, value: number | number[]) => {
     setLength(value as number)
+  }
+
+  const onSlideSpeed = (e: any, value: number | number[]) => {
+    setSpeed(value as number)
   }
 
   const onAlgorithmChange = (
@@ -50,9 +58,11 @@ export const App = () => {
       <Controls
         onSort={onSort}
         onRandomize={onRandomize}
-        onSlide={onSlide}
+        onSlideLength={onSlideLength}
+        onSlideSpeed={onSlideSpeed}
         algorithm={algorithm}
         onAlgorithmChange={onAlgorithmChange}
+        enableControls={!isSorting}
       />
       <List list={list} />
     </>

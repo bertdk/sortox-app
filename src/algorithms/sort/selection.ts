@@ -2,7 +2,11 @@ import { BarState } from '../../Components/Bar/Bar.component'
 import { Item } from '../../Components/List/List.component'
 import { sleep } from '../../utils/sleep'
 
-export const selectionSort = async (list: Item[], setList: any) => {
+export const selectionSort = async (
+  list: Item[],
+  setList: any,
+  speed: number
+) => {
   let listToSort = list
   const sorted: Item[] = []
   while (sorted.length !== list.length) {
@@ -17,7 +21,7 @@ export const selectionSort = async (list: Item[], setList: any) => {
         minIndex = i
       }
       setList([...sorted, ...listToSort])
-      await sleep(15)
+      await sleep(speed)
       listToSort[i].state = BarState.ToDo
       listToSort[minIndex].state = BarState.Pivot
     }

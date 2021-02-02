@@ -9,38 +9,73 @@ export enum AlgorithmsEnum {
 export interface Props {
   onSort: any
   onRandomize: any
-  onSlide: any
+  onSlideLength: any
+  onSlideSpeed: any
   algorithm: AlgorithmsEnum
   onAlgorithmChange: any
+  enableControls: boolean
 }
 
 export const Controls = ({
   onSort,
   onRandomize,
-  onSlide,
+  onSlideLength,
   algorithm,
   onAlgorithmChange,
+  onSlideSpeed,
+  enableControls,
 }: Props) => (
   <div className={s.controls}>
     <div className={s.control}>
-      <Select value={algorithm} onChange={onAlgorithmChange}>
+      <Select
+        value={algorithm}
+        onChange={onAlgorithmChange}
+        disabled={!enableControls}
+      >
         <MenuItem value={AlgorithmsEnum.selection}>
           {AlgorithmsEnum.selection}
         </MenuItem>
       </Select>
     </div>
     <div className={s.control}>
-      <Button variant="contained" color="primary" onClick={onSort}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={onSort}
+        disabled={!enableControls}
+      >
         Sort
       </Button>
     </div>
     <div className={s.control}>
-      <Button variant="contained" color="primary" onClick={onRandomize}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={onRandomize}
+        disabled={!enableControls}
+      >
         Randomize
       </Button>
     </div>
     <div className={s.control}>
-      <Slider step={5} min={2} max={100} onChange={onSlide} marks={true} />
+      <Slider
+        step={5}
+        min={2}
+        max={100}
+        onChange={onSlideLength}
+        marks={true}
+        disabled={!enableControls}
+      />
+    </div>
+    <div className={s.control}>
+      <Slider
+        step={10}
+        min={10}
+        max={100}
+        onChange={onSlideSpeed}
+        marks={true}
+        disabled={!enableControls}
+      />
     </div>
   </div>
 )
