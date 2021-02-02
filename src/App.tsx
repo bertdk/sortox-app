@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { insertionSort } from './algorithms/sort/insertion'
 import { selectionSort } from './algorithms/sort/selection'
 import { BarState } from './Components/Bar/Bar.component'
 import { AlgorithmsEnum, Controls } from './Components/List/Controls.component'
@@ -18,7 +19,17 @@ export const App = () => {
 
   const onSort = async () => {
     setIsSorting(true)
-    await selectionSort(list, setList, speed)
+    switch (algorithm) {
+      case AlgorithmsEnum.selection:
+        await selectionSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.insertion:
+        await insertionSort(list, setList, speed)
+        break
+
+      default:
+        break
+    }
     setIsSorting(false)
   }
 

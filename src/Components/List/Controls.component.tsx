@@ -4,6 +4,7 @@ import s from './controls.module.scss'
 
 export enum AlgorithmsEnum {
   selection = 'Selection',
+  insertion = 'Insertion',
 }
 
 export interface Props {
@@ -34,6 +35,9 @@ export const Controls = ({
       >
         <MenuItem value={AlgorithmsEnum.selection}>
           {AlgorithmsEnum.selection}
+        </MenuItem>
+        <MenuItem value={AlgorithmsEnum.insertion}>
+          {AlgorithmsEnum.insertion}
         </MenuItem>
       </Select>
     </div>
