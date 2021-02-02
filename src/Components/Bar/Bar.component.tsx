@@ -7,6 +7,7 @@ export enum BarState {
   Done = 'done',
   Current = 'current',
   ToDo = 'todo',
+  Pivot = 'pivot',
 }
 export interface Props {
   number: number

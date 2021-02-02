@@ -12,7 +12,8 @@ export const Tile = ({ state }: Props) => (
     className={cx(
       s.tile,
       state === BarState.Done && s.done,
-      state === BarState.Current && s.current
+      state === BarState.Current && s.current,
+      state === BarState.Pivot && s.pivot
     )}
   />
 )

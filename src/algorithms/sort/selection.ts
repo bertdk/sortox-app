@@ -6,30 +6,29 @@ export const selectionSort = async (list: Item[], setList: any) => {
   let listToSort = list
   const sorted: Item[] = []
   while (sorted.length !== list.length) {
-    let found = false
-
-    const min = listToSort.reduce((p, c) => {
-      if (c.number < p.number) {
-        return c
+    let min = listToSort[0]
+    let minIndex = 0
+    listToSort[minIndex].state = BarState.Pivot
+    for (let i = 1; i < listToSort.length; i++) {
+      listToSort[i].state = BarState.Current
+      if (listToSort[i].number < min.number) {
+        listToSort[minIndex].state = BarState.ToDo
+        min = listToSort[i]
+        minIndex = i
       }
-      return p
-    }, listToSort[0])
+      setList([...sorted, ...listToSort])
+      await sleep(15)
+      listToSort[i].state = BarState.ToDo
+      listToSort[minIndex].state = BarState.Pivot
+    }
 
-    min.state = BarState.Current
-    setList([...sorted, ...listToSort])
-    await sleep(15)
-
-    listToSort = listToSort.filter((n) => {
-      if (!found && n.number === min.number) {
-        found = true
-        return false
-      }
-      return true
-    })
+    listToSort = [
+      ...listToSort.slice(0, minIndex),
+      ...listToSort.slice(minIndex + 1),
+    ]
 
     sorted.push({ number: min.number, state: BarState.Done })
     setList([...sorted, ...listToSort])
-    await sleep(5)
   }
   return sorted
 }
