@@ -1,0 +1,6 @@
+module.exports = function override(config) {
+  config.resolve = {
+    ...config.resolve,
+  }
+  return config
+}

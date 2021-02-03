@@ -34,7 +34,8 @@ export const quickSort = async (
   const leftListSorted = await quickSort(leftList, setList, speed, fullList)
   const rightListSorted = await quickSort(rightList, setList, speed, fullList)
   pivot.state = BarState.Done
-  setList([...leftListSorted, pivot, ...rightListSorted])
+  const sorted = [...leftListSorted, pivot, ...rightListSorted]
+  setList(sorted)
   await sleep(speed)
-  return [...leftListSorted, pivot, ...rightListSorted]
+  return sorted
 }
