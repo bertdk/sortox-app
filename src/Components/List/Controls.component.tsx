@@ -32,7 +32,9 @@ export const Controls = ({
         {Object.values(AlgorithmsEnum)
           .sort()
           .map((a) => (
-            <MenuItem value={a}>{a}</MenuItem>
+            <MenuItem value={a} key={a}>
+              {a}
+            </MenuItem>
           ))}
       </Select>
     </div>

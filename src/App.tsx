@@ -1,3 +1,4 @@
+import { quickSort } from 'algorithms/sort/quick.sort.algo'
 import React, { useEffect, useState } from 'react'
 import { bubbleSort } from './algorithms/sort/bubble.sort.algo'
 import { insertionSort } from './algorithms/sort/insertion.sort.algo'
@@ -31,6 +32,9 @@ export const App = () => {
         break
       case AlgorithmsEnum.bubble:
         await bubbleSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.quick:
+        await quickSort(list, setList, speed)
         break
 
       default:
