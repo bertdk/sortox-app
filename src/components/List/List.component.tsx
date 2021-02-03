@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import s from './list.module.scss'
-import { Bar } from 'cpnts/Bar/Bar.component'
+import { Bar } from 'components/Bar/Bar.component'
 import { Item } from 'contracts/representations/item.representation'
 
 interface Props {
