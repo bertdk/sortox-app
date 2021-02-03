@@ -70,9 +70,9 @@ export const Controls = ({
     </div>
     <div className={s.control}>
       <Slider
-        step={10}
+        step={50}
         min={10}
-        max={100}
+        max={1000}
         onChange={onSlideSpeed}
         marks={true}
         disabled={!enableControls}
