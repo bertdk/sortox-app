@@ -1,4 +1,3 @@
-import { List } from '@material-ui/core'
 import { bubbleSort } from 'algorithms/sort/bubble.sort.algo'
 import { insertionSort } from 'algorithms/sort/insertion.sort.algo'
 import { quickSort } from 'algorithms/sort/quick.sort.algo'
@@ -7,6 +6,7 @@ import { AlgorithmsEnum } from 'contracts/enums/Algorithms.enum'
 import { BarState } from 'contracts/enums/BarStatus.enum'
 import { Item } from 'contracts/representations/item.representation'
 import { Controls } from 'cpnts/List/Controls.component'
+import { List } from 'cpnts/List/List.component'
 import React, { useEffect, useState } from 'react'
 import { randomNumber } from 'utils/randomNumber'
 
