@@ -24,11 +24,7 @@ export const Controls = ({
 }: Props) => (
   <div className={s.controls}>
     <div className={s.control}>
-      <Select
-        value={algorithm}
-        onChange={onAlgorithmChange}
-        disabled={!enableControls}
-      >
+      <Select value={algorithm} onChange={onAlgorithmChange} disabled={!enableControls}>
         {Object.values(AlgorithmsEnum)
           .sort()
           .map((a) => (
@@ -39,44 +35,20 @@ export const Controls = ({
       </Select>
     </div>
     <div className={s.control}>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={onSort}
-        disabled={!enableControls}
-      >
+      <Button variant="contained" color="primary" onClick={onSort} disabled={!enableControls}>
         Sort
       </Button>
     </div>
     <div className={s.control}>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={onRandomize}
-        disabled={!enableControls}
-      >
+      <Button variant="contained" color="primary" onClick={onRandomize} disabled={!enableControls}>
         Randomize
       </Button>
     </div>
     <div className={s.control}>
-      <Slider
-        step={5}
-        min={2}
-        max={100}
-        onChange={onSlideLength}
-        marks={true}
-        disabled={!enableControls}
-      />
+      <Slider step={5} min={2} max={100} onChange={onSlideLength} marks={true} disabled={!enableControls} />
     </div>
     <div className={s.control}>
-      <Slider
-        step={50}
-        min={10}
-        max={1000}
-        onChange={onSlideSpeed}
-        marks={true}
-        disabled={!enableControls}
-      />
+      <Slider step={50} min={10} max={1000} onChange={onSlideSpeed} marks={true} disabled={!enableControls} />
     </div>
   </div>
 )

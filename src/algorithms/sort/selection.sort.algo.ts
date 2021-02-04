@@ -2,11 +2,7 @@ import { BarState } from 'contracts/enums/BarStatus.enum'
 import { Item } from 'contracts/representations/item.representation'
 import { sleep } from 'utils/sleep'
 
-export const selectionSort = async (
-  list: Item[],
-  setList: any,
-  speed: number
-) => {
+export const selectionSort = async (list: Item[], setList: any, speed: number) => {
   let listToSort = list
   const sorted: Item[] = []
   while (sorted.length !== list.length) {
@@ -26,10 +22,7 @@ export const selectionSort = async (
       listToSort[minIndex].state = BarState.Pivot
     }
 
-    listToSort = [
-      ...listToSort.slice(0, minIndex),
-      ...listToSort.slice(minIndex + 1),
-    ]
+    listToSort = [...listToSort.slice(0, minIndex), ...listToSort.slice(minIndex + 1)]
 
     sorted.push({ number: min.number, state: BarState.Done })
     setList([...sorted, ...listToSort])

@@ -22,10 +22,7 @@ export const quickSort = async (
     const current = list[index]
     current.state = BarState.Current
     currentFullList = [
-      ...currentFullList.slice(
-        0,
-        start + list.length - sincePivot.length - tillPivot.length
-      ),
+      ...currentFullList.slice(0, start + list.length - sincePivot.length - tillPivot.length),
       ...tillPivot,
       ...sincePivot,
       ...currentFullList.slice(start + list.length),
@@ -41,44 +38,21 @@ export const quickSort = async (
     current.state = BarState.ToDo
   }
   currentFullList = [
-    ...currentFullList.slice(
-      0,
-      start + list.length - sincePivot.length - tillPivot.length
-    ),
+    ...currentFullList.slice(0, start + list.length - sincePivot.length - tillPivot.length),
     ...tillPivot,
     ...sincePivot,
     ...currentFullList.slice(start + list.length),
   ]
   sincePivot[0].state = BarState.Done
 
-  const leftListSorted = await quickSort(
-    tillPivot,
-    setList,
-    speed,
-    currentFullList,
-    start
-  )
+  const leftListSorted = await quickSort(tillPivot, setList, speed, currentFullList, start)
   let sorted = [...leftListSorted, ...sincePivot]
-  currentFullList = [
-    ...currentFullList.slice(0, start),
-    ...sorted,
-    ...currentFullList.slice(start + sorted.length),
-  ]
+  currentFullList = [...currentFullList.slice(0, start), ...sorted, ...currentFullList.slice(start + sorted.length)]
   setList(currentFullList)
 
-  const rightListSorted = await quickSort(
-    sincePivot.slice(1),
-    setList,
-    speed,
-    currentFullList,
-    start + tillPivot.length + 1
-  )
+  const rightListSorted = await quickSort(sincePivot.slice(1), setList, speed, currentFullList, start + tillPivot.length + 1)
   sorted = [...leftListSorted, sincePivot[0], ...rightListSorted]
-  currentFullList = [
-    ...currentFullList.slice(0, start),
-    ...sorted,
-    ...currentFullList.slice(start + sorted.length),
-  ]
+  currentFullList = [...currentFullList.slice(0, start), ...sorted, ...currentFullList.slice(start + sorted.length)]
   setList(currentFullList)
 
   return sorted

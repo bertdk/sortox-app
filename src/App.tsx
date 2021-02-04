@@ -68,9 +68,7 @@ export const App = () => {
     setSpeed(value as number)
   }
 
-  const onAlgorithmChange = (
-    e: React.ChangeEvent<{ value: AlgorithmsEnum }>
-  ) => {
+  const onAlgorithmChange = (e: React.ChangeEvent<{ value: AlgorithmsEnum }>) => {
     setAlgorithm(e.target.value)
   }
 
