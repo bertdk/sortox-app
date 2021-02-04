@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
 import s from './tile.module.scss'
-import { BarState } from './Bar.component'
+import { BarState } from 'contracts/enums/BarStatus.enum'
 
-export interface Props {
+interface Props {
   state: BarState
 }
 

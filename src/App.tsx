@@ -1,10 +1,14 @@
+import { bubbleSort } from 'algorithms/sort/bubble.sort.algo'
+import { insertionSort } from 'algorithms/sort/insertion.sort.algo'
+import { quickSort } from 'algorithms/sort/quick.sort.algo'
+import { selectionSort } from 'algorithms/sort/selection.sort.algo'
+import { AlgorithmsEnum } from 'contracts/enums/Algorithms.enum'
+import { BarState } from 'contracts/enums/BarStatus.enum'
+import { Item } from 'contracts/representations/item.representation'
+import { Controls } from 'components/List/Controls.component'
+import { List } from 'components/List/List.component'
 import React, { useEffect, useState } from 'react'
-import { insertionSort } from './algorithms/sort/insertion'
-import { selectionSort } from './algorithms/sort/selection'
-import { BarState } from './Components/Bar/Bar.component'
-import { AlgorithmsEnum, Controls } from './Components/List/Controls.component'
-import { Item, List } from './Components/List/List.component'
-import { randomNumber } from './utils/randomNumber'
+import { randomNumber } from 'utils/randomNumber'
 
 export const App = () => {
   const [list, setList] = useState([] as Item[])
@@ -25,6 +29,12 @@ export const App = () => {
         break
       case AlgorithmsEnum.insertion:
         await insertionSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.bubble:
+        await bubbleSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.quick:
+        await quickSort(list, setList, speed)
         break
 
       default:
@@ -58,9 +68,7 @@ export const App = () => {
     setSpeed(value as number)
   }
 
-  const onAlgorithmChange = (
-    e: React.ChangeEvent<{ value: AlgorithmsEnum }>
-  ) => {
+  const onAlgorithmChange = (e: React.ChangeEvent<{ value: AlgorithmsEnum }>) => {
     setAlgorithm(e.target.value)
   }
 

@@ -1,13 +1,10 @@
 import React from 'react'
-import { Bar, BarState } from '../Bar/Bar.component'
 import cx from 'classnames'
 import s from './list.module.scss'
+import { Bar } from 'components/Bar/Bar.component'
+import { Item } from 'contracts/representations/item.representation'
 
-export interface Item {
-  number: number
-  state: BarState
-}
-export interface Props {
+interface Props {
   list: Item[]
 }
 
