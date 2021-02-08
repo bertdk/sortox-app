@@ -54,13 +54,20 @@ export const App = () => {
 
   const createRandomList = (length: number) => {
     const list: Item[] = []
-    for (let i = 1; i <= length; i++) {
-      let newNumber = randomNumber(length)
-      // eslint-disable-next-line no-loop-func
-      while (list.some(({ number }) => number === newNumber)) {
-        newNumber = randomNumber(length)
+    const todo = Array.from(Array(length)).map((v, i) => i + 1)
+    debugger
+    for (let i = length - 1; i >= 0; i--) {
+      debugger
+      const randomIndex = randomNumber(i)
+      const newNumber = todo[randomIndex]
+      if (randomIndex < i) {
+        todo[randomIndex] = todo.pop() as number
+      } else {
+        todo.pop()
       }
+
       list.push({ number: newNumber, state: BarState.ToDo })
+      debugger
     }
     return list
   }
