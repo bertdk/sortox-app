@@ -7,6 +7,7 @@ import { Item } from 'contracts/representations/item.representation'
 export const Bar = ({ number, state }: Item) => {
   return (
     <div className={cx(s.bar)}>
+      <div className={cx(s.number)}>{number}</div>
       {[...Array(number)].map((n, i) => (
         <Tile key={i} state={state} />
       ))}

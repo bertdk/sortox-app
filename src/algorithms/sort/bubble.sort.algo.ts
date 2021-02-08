@@ -2,7 +2,7 @@ import { BarState } from 'contracts/enums/BarStatus.enum'
 import { Item } from 'contracts/representations/item.representation'
 import { sleep } from 'utils/sleep'
 
-export const bubbleSort = async (list: Item[], setList: any, speed: number) => {
+export const bubbleSort = async (list: Item[], setList: React.Dispatch<React.SetStateAction<Item[]>>, speed: number) => {
   let listToSort = list
   const sorted: Item[] = []
   while (sorted.length !== list.length) {

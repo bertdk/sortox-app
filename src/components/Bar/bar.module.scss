@@ -1,5 +1,23 @@
+@import 'styles/style.module.scss';
+
 .bar {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 100%;
+
+  .number {
+    bottom: 0;
+    color: $primary-light;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-orientation: upright;
+    top: 0;
+    width: fit-content;
+    writing-mode: vertical-lr;
+    z-index: 1;
+  }
 }

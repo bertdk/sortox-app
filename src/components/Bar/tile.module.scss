@@ -1,8 +1,8 @@
 @import 'styles/style.module.scss';
 
 .tile {
-  background-color: $primary;
-  height: 10px;
+  background-color: $todo;
+  min-height: 18px;
   width: 100%;
 
   &.done {

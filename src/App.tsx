@@ -5,16 +5,21 @@ import { selectionSort } from 'algorithms/sort/selection.sort.algo'
 import { AlgorithmsEnum } from 'contracts/enums/Algorithms.enum'
 import { BarState } from 'contracts/enums/BarStatus.enum'
 import { Item } from 'contracts/representations/item.representation'
-import { Controls } from 'components/List/Controls.component'
+import { Controls } from 'components/Controls/Controls.component'
 import { List } from 'components/List/List.component'
 import React, { useEffect, useState } from 'react'
 import { randomNumber } from 'utils/randomNumber'
 
 export const App = () => {
+  const defaults = {
+    speed: 100,
+    length: 10,
+    algorithm: AlgorithmsEnum.quick,
+  }
   const [list, setList] = useState([] as Item[])
-  const [algorithm, setAlgorithm] = useState(AlgorithmsEnum.selection)
-  const [length, setLength] = useState(10)
-  const [speed, setSpeed] = useState(15)
+  const [algorithm, setAlgorithm] = useState(defaults.algorithm)
+  const [length, setLength] = useState(defaults.length)
+  const [speed, setSpeed] = useState(defaults.speed)
   const [isSorting, setIsSorting] = useState(false)
 
   useEffect(() => {
@@ -49,22 +54,29 @@ export const App = () => {
 
   const createRandomList = (length: number) => {
     const list: Item[] = []
-    for (let i = 1; i <= length; i++) {
-      let newNumber = randomNumber(length)
-      // eslint-disable-next-line no-loop-func
-      while (list.some(({ number }) => number === newNumber)) {
-        newNumber = randomNumber(length)
+    const todo = Array.from(Array(length)).map((v, i) => i + 1)
+    debugger
+    for (let i = length - 1; i >= 0; i--) {
+      debugger
+      const randomIndex = randomNumber(i)
+      const newNumber = todo[randomIndex]
+      if (randomIndex < i) {
+        todo[randomIndex] = todo.pop() as number
+      } else {
+        todo.pop()
       }
+
       list.push({ number: newNumber, state: BarState.ToDo })
+      debugger
     }
     return list
   }
 
-  const onSlideLength = (e: any, value: number | number[]) => {
+  const onSlideLength = (e: React.ChangeEvent<{}>, value: number | number[]) => {
     setLength(value as number)
   }
 
-  const onSlideSpeed = (e: any, value: number | number[]) => {
+  const onSlideSpeed = (e: React.ChangeEvent<{}>, value: number | number[]) => {
     setSpeed(value as number)
   }
 
@@ -82,6 +94,7 @@ export const App = () => {
         algorithm={algorithm}
         onAlgorithmChange={onAlgorithmChange}
         enableControls={!isSorting}
+        defaults={defaults}
       />
       <List list={list} />
     </>
