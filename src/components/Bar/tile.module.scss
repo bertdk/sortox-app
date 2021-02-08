@@ -2,7 +2,7 @@
 
 .tile {
   background-color: $primary;
-  height: 10px;
+  min-height: 18px;
   width: 100%;
 
   &.done {

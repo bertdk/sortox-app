@@ -5,16 +5,21 @@ import { selectionSort } from 'algorithms/sort/selection.sort.algo'
 import { AlgorithmsEnum } from 'contracts/enums/Algorithms.enum'
 import { BarState } from 'contracts/enums/BarStatus.enum'
 import { Item } from 'contracts/representations/item.representation'
-import { Controls } from 'components/List/Controls.component'
+import { Controls } from 'components/Controls/Controls.component'
 import { List } from 'components/List/List.component'
 import React, { useEffect, useState } from 'react'
 import { randomNumber } from 'utils/randomNumber'
 
 export const App = () => {
+  const defaults = {
+    speed: 100,
+    length: 10,
+    algorithm: AlgorithmsEnum.quick,
+  }
   const [list, setList] = useState([] as Item[])
-  const [algorithm, setAlgorithm] = useState(AlgorithmsEnum.selection)
-  const [length, setLength] = useState(10)
-  const [speed, setSpeed] = useState(15)
+  const [algorithm, setAlgorithm] = useState(defaults.algorithm)
+  const [length, setLength] = useState(defaults.length)
+  const [speed, setSpeed] = useState(defaults.speed)
   const [isSorting, setIsSorting] = useState(false)
 
   useEffect(() => {
@@ -60,11 +65,11 @@ export const App = () => {
     return list
   }
 
-  const onSlideLength = (e: any, value: number | number[]) => {
+  const onSlideLength = (e: React.ChangeEvent<{}>, value: number | number[]) => {
     setLength(value as number)
   }
 
-  const onSlideSpeed = (e: any, value: number | number[]) => {
+  const onSlideSpeed = (e: React.ChangeEvent<{}>, value: number | number[]) => {
     setSpeed(value as number)
   }
 
@@ -82,6 +87,7 @@ export const App = () => {
         algorithm={algorithm}
         onAlgorithmChange={onAlgorithmChange}
         enableControls={!isSorting}
+        defaults={defaults}
       />
       <List list={list} />
     </>
