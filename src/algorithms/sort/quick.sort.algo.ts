@@ -27,7 +27,6 @@ export const quickSort = async (
       ...sincePivot,
       ...currentFullList.slice(start + list.length),
     ]
-    debugger
     setList(currentFullList)
     await sleep(speed)
     if (current.number > sincePivot[0].number) {
