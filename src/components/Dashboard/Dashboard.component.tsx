@@ -12,6 +12,7 @@ import { randomNumber } from 'utils/randomNumber'
 import { mergeSort } from 'algorithms/sort/merge.sort.algo'
 import s from './dashboard.module.scss'
 import cs from 'classnames'
+import { shellSort } from 'algorithms/sort/shell.sort.algo'
 
 export const Dashboard = () => {
   const defaults = {
@@ -46,6 +47,9 @@ export const Dashboard = () => {
         break
       case AlgorithmsEnum.merge:
         await mergeSort(list, setList, speed)
+        break
+      case AlgorithmsEnum.shell:
+        await shellSort(list, setList, speed)
         break
 
       default:
