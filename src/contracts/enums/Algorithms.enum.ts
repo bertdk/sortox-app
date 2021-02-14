@@ -3,4 +3,5 @@ export enum AlgorithmsEnum {
   insertion = 'Insertion',
   bubble = 'Bubble',
   quick = 'Quick',
+  merge = 'Merge',
 }

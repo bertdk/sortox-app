@@ -9,6 +9,7 @@ import { Controls } from 'components/Controls/Controls.component'
 import { List } from 'components/List/List.component'
 import React, { useEffect, useState } from 'react'
 import { randomNumber } from 'utils/randomNumber'
+import { mergeSort } from 'algorithms/sort/merge.sort.algo'
 
 export const App = () => {
   const defaults = {
@@ -41,6 +42,9 @@ export const App = () => {
       case AlgorithmsEnum.quick:
         await quickSort(list, setList, speed)
         break
+      case AlgorithmsEnum.merge:
+        await mergeSort(list, setList, speed)
+        break
 
       default:
         break
@@ -55,9 +59,7 @@ export const App = () => {
   const createRandomList = (length: number) => {
     const list: Item[] = []
     const todo = Array.from(Array(length)).map((v, i) => i + 1)
-    debugger
     for (let i = length - 1; i >= 0; i--) {
-      debugger
       const randomIndex = randomNumber(i)
       const newNumber = todo[randomIndex]
       if (randomIndex < i) {
@@ -67,7 +69,6 @@ export const App = () => {
       }
 
       list.push({ number: newNumber, state: BarState.ToDo })
-      debugger
     }
     return list
   }
