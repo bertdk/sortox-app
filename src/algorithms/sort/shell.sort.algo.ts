@@ -14,7 +14,6 @@ export const shellSort = async (list: Item[], setList: React.Dispatch<React.SetS
         let previous = i - stepSize
         while (previous >= 0) {
           currentList[previous].state = BarState.Pivot
-          console.log(previous)
           let checked = previous
           if (currentList[previous].number > current.number) {
             checked += stepSize
@@ -30,7 +29,6 @@ export const shellSort = async (list: Item[], setList: React.Dispatch<React.SetS
           }
           setList([...currentList])
           await sleep(speed)
-          console.log(checked)
           currentList[checked].state = BarState.Current
         }
       }
