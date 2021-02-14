@@ -4,4 +4,5 @@ export enum AlgorithmsEnum {
   bubble = 'Bubble',
   quick = 'Quick',
   merge = 'Merge',
+  shell = 'Shell',
 }
