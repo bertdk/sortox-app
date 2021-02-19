@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Sortox
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,8 +39,27 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `yarn cypress:open`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Open Cypress to test the app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Cypress setup
+
+- Require:
+
+  - macOs: +10.9
+  - Node.js: 10 or +12
+
+- Installation: `yarn add cypress eslint-plugin-cypress eslint-plugin-chai-friendly eslint eslint-plugin-jest --dev`
+- ESLint: `/cypress/.eslintrc.json` (recommended config used)
+- Jest
+- Typescript: `/cypress/tsconfig.json`
+- IDE Integration (VS Code)
+
+  - [Cypress Fixture-IntelliSense](https://marketplace.visualstudio.com/items?itemName=JosefBiehler.cypress-fixture-intellisense)
+  - Cypress Fixture-IntelliSense: Supports your cy.fixture() and cy.route(..., fixture:) commands by providing intellisense for existing fixtures.
+
+  - [Cypress Helper](https://marketplace.visualstudio.com/items?itemName=Shelex.vscode-cy-helper): Various helpers and commands for integration with Cypress.
+  - [Cypress Snippets](https://marketplace.visualstudio.com/items?itemName=andrew-codes.cypress-snippets): Useful Cypress code snippets.
+  - [Open Cypress](https://marketplace.visualstudio.com/items?itemName=tnrich.vscode-extension-open-cypress): Allows you to open Cypress specs and single it() blocks directly from VS Code.
+  - [Test Utils](https://marketplace.visualstudio.com/items?itemName=chrisbreiding.test-utils): Easily add or remove .only and .skip modifiers with keyboard shortcuts or the command palette.
