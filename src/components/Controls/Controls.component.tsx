@@ -48,7 +48,7 @@ export const Controls = ({
       </Grid>
       <Grid item className={cx(s.item)} xs={6} sm={4} md={2}>
         <div className={s.control}>
-          <Button variant="contained" color="primary" onClick={onSort} disabled={!enableControls} fullWidth>
+          <Button variant="contained" color="primary" onClick={onSort} disabled={!enableControls} fullWidth id="control-sort-run">
             Sort
           </Button>
         </div>

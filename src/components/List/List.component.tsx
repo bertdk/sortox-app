@@ -11,7 +11,7 @@ interface Props {
 export const List = ({ list }: Props) => (
   <div className={cx(s.list)}>
     {list.map(({ number, state }, i) => (
-      <Bar key={i} number={number} state={state} />
+      <Bar key={i} number={number} state={state} max={list.length} />
     ))}
   </div>
 )
