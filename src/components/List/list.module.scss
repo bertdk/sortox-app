@@ -5,4 +5,6 @@
   margin: 5px 15px;
   max-height: 100%;
   max-width: 100%;
+  transform: scaleY(-1);
+  $breakpoint-tablet: 768px;
 }

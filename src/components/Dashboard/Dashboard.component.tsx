@@ -17,7 +17,7 @@ import { shellSort } from 'algorithms/sort/shell.sort.algo'
 export const Dashboard = () => {
   const defaults = {
     speed: 100,
-    length: 10,
+    length: 90,
     algorithm: AlgorithmsEnum.quick,
   }
   const [list, setList] = useState([] as Item[])
